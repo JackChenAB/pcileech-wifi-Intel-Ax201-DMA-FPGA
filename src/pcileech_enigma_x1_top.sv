@@ -16,7 +16,10 @@ module pcileech_enigma_x1_top #(
     parameter       PARAM_DEVICE_ID = 9,
     parameter       PARAM_VERSION_NUMBER_MAJOR = 4,
     parameter       PARAM_VERSION_NUMBER_MINOR = 13,
-    parameter       PARAM_CUSTOM_VALUE = 32'hffffffff
+    parameter       PARAM_CUSTOM_VALUE = 32'hffffffff,
+    parameter       PARAM_UDP_STATIC_ADDR = 32'hc0a800de,   // 192.168.0.222
+    parameter       PARAM_UDP_STATIC_FORCE = 1'b0,
+    parameter       PARAM_UDP_PORT = 16'h6f3a               // 28474	
 ) (
     // SYS
     input           clk,
