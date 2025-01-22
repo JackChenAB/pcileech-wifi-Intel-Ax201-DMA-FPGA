@@ -41,7 +41,18 @@ module pcileech_squirrel_top #(
     output          ft601_wr_n,
     output          ft601_siwu_n,
     output          ft601_rd_n,
-    output          ft601_oe_n
+    output          ft601_oe_n,
+
+    // ETH
+    output          eth_clk50,
+    output          eth_rst_n,
+    input   [1:0]   eth_rx_data,
+    input           eth_crs_dv,
+    output          eth_tx_en,
+    output  [1:0]   eth_tx_data,
+    output          eth_mdc,
+    inout           eth_mdio,
+    input           eth_rx_err	
     );
     
     // SYS
@@ -105,7 +116,22 @@ module pcileech_squirrel_top #(
         .ft601_siwu_n       ( ft601_siwu_n          ),  // ->
         .ft601_wr_n         ( ft601_wr_n            ),  // ->
         .ft601_rd_n         ( ft601_rd_n            ),  // ->
-        .ft601_oe_n         ( ft601_oe_n            )   // ->
+	.ft601_oe_n         ( ft601_oe_n            ),  // ->
+        // MAC/RMII
+        .eth_clk50          ( eth_clk50             ),
+        .eth_rst_n          ( eth_rst_n             ),
+        .eth_crs_dv         ( eth_crs_dv            ),
+        .eth_rx_data        ( eth_rx_data           ),
+        .eth_rx_err         ( eth_rx_err            ),
+        .eth_tx_en          ( eth_tx_en             ),
+        .eth_tx_data        ( eth_tx_data           ),
+        .eth_mdc            ( eth_mdc               ),
+        .eth_mdio           ( eth_mdio              ),
+        .eth_cfg_static_addr ( PARAM_UDP_STATIC_ADDR    ),  // <- [31:0]
+        .eth_cfg_static_force ( PARAM_UDP_STATIC_FORCE  ),  // <-
+        .eth_cfg_port       ( PARAM_UDP_PORT        ),  // <- [15:0]
+        .eth_led_state_red  ( led20                 ),  // ->
+        .eth_led_state_green( led21                 )   // ->		    
     );
     
     // ----------------------------------------------------
