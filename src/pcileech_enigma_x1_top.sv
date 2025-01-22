@@ -50,6 +50,25 @@ module pcileech_enigma_x1_top #(
     output          ft601_siwu_n,
     output          ft601_rd_n,
     output          ft601_oe_n
+
+`endif /* ENABLE_FT601 */    
+`ifdef ENABLE_ETH
+    // ETH
+    output              eth_clk50,
+    output              eth_rst_n,
+    input   [1:0]       eth_rx_data,
+    input               eth_crs_dv,
+    output              eth_tx_en,
+    output  [1:0]       eth_tx_data,
+    output              eth_mdc,
+    inout               eth_mdio,
+    input               eth_rx_err,
+    input   [31:0]      eth_cfg_static_addr,
+    input               eth_cfg_static_force,
+    input   [15:0]      eth_cfg_port,
+    output              eth_led_state_red,
+    output              eth_led_state_green
+`endif /* ENABLE_ETH */	
     );
     
     // SYS
