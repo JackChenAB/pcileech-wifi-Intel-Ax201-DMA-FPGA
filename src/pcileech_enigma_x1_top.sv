@@ -124,6 +124,21 @@ module pcileech_enigma_x1_top #(
         .ft601_wr_n         ( ft601_wr_n            ),  // ->
         .ft601_rd_n         ( ft601_rd_n            ),  // ->
         .ft601_oe_n         ( ft601_oe_n            )   // ->
+        // MAC/RMII
+        .eth_clk50          ( eth_clk50             ),
+        .eth_rst_n          ( eth_rst_n             ),
+        .eth_crs_dv         ( eth_crs_dv            ),
+        .eth_rx_data        ( eth_rx_data           ),
+        .eth_rx_err         ( eth_rx_err            ),
+        .eth_tx_en          ( eth_tx_en             ),
+        .eth_tx_data        ( eth_tx_data           ),
+        .eth_mdc            ( eth_mdc               ),
+        .eth_mdio           ( eth_mdio              ),
+        .eth_cfg_static_addr ( PARAM_UDP_STATIC_ADDR    ),  // <- [31:0]
+        .eth_cfg_static_force ( PARAM_UDP_STATIC_FORCE  ),  // <-
+        .eth_cfg_port       ( PARAM_UDP_PORT        ),  // <- [15:0]
+        .eth_led_state_red  ( led20                 ),  // ->
+        .eth_led_state_green( led21                 )   // ->	    
     );
     
     // ----------------------------------------------------
@@ -171,7 +186,23 @@ module pcileech_enigma_x1_top #(
         .dfifo_cfg          ( dcfg.mp_pcie          ),
         .dfifo_tlp          ( dtlp.mp_pcie          ),
         .dfifo_pcie         ( dpcie.mp_pcie         ),
-        .dshadow2fifo       ( dshadow2fifo.shadow   )
+	.dshadow2fifo       ( dshadow2fifo.shadow   ),
+
+	// MAC/RMII
+        .eth_clk50          ( eth_clk50             ),
+        .eth_rst_n          ( eth_rst_n             ),
+        .eth_crs_dv         ( eth_crs_dv            ),
+        .eth_rx_data        ( eth_rx_data           ),
+        .eth_rx_err         ( eth_rx_err            ),
+        .eth_tx_en          ( eth_tx_en             ),
+        .eth_tx_data        ( eth_tx_data           ),
+        .eth_mdc            ( eth_mdc               ),
+        .eth_mdio           ( eth_mdio              ),
+        .eth_cfg_static_addr ( PARAM_UDP_STATIC_ADDR    ),  // <- [31:0]
+        .eth_cfg_static_force ( PARAM_UDP_STATIC_FORCE  ),  // <-
+        .eth_cfg_port       ( PARAM_UDP_PORT        ),  // <- [15:0]
+        .eth_led_state_red  ( led20                 ),  // ->
+        .eth_led_state_green( led21                 )   // ->	    
     );
 
 endmodule
