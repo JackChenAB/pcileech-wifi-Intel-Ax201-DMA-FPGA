@@ -89,6 +89,32 @@ set_false_path -from [get_pins {i_pcileech_fifo/_pcie_core_config_reg[*]/C}]
 set_false_path -from [get_pins i_pcileech_pcie_a7/i_pcie_7x_0/inst/inst/user_lnk_up_int_reg/C] -to [get_pins {i_pcileech_fifo/_cmd_tx_din_reg[16]/D}]
 set_false_path -from [get_pins i_pcileech_pcie_a7/i_pcie_7x_0/inst/inst/user_reset_out_reg/C]
 
+#
+# RMII ETH BELOW
+#
+set_property PACKAGE_PIN D17  [get_ports eth_clk50]
+set_property PACKAGE_PIN F16  [get_ports eth_rst_n]
+set_property PACKAGE_PIN A20  [get_ports {eth_rx_data[0]}]
+set_property PACKAGE_PIN B18  [get_ports {eth_rx_data[1]}]
+set_property PACKAGE_PIN C20  [get_ports eth_crs_dv]
+set_property PACKAGE_PIN A19  [get_ports eth_tx_en]
+set_property PACKAGE_PIN C18  [get_ports {eth_tx_data[0]}]
+set_property PACKAGE_PIN C19  [get_ports {eth_tx_data[1]}]
+set_property PACKAGE_PIN F14  [get_ports eth_mdc]
+set_property PACKAGE_PIN F13  [get_ports eth_mdio]
+set_property PACKAGE_PIN B20  [get_ports eth_rx_err]
+set_property IOSTANDARD LVCMOS33 [get_ports eth_clk50]
+set_property IOSTANDARD LVCMOS33 [get_ports eth_rst_n]
+set_property IOSTANDARD LVCMOS33 [get_ports {eth_rx_data[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {eth_rx_data[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports eth_crs_dv]
+set_property IOSTANDARD LVCMOS33 [get_ports eth_tx_en]
+set_property IOSTANDARD LVCMOS33 [get_ports {eth_tx_data[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {eth_tx_data[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports eth_mdc]
+set_property IOSTANDARD LVCMOS33 [get_ports eth_mdio]
+set_property IOSTANDARD LVCMOS33 [get_ports eth_rx_err]
+
 #PCIe signals
 set_property PACKAGE_PIN A13 [get_ports pcie_present]
 set_property PACKAGE_PIN C13 [get_ports pcie_perst_n]
