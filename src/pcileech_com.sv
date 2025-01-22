@@ -1,6 +1,6 @@
 
 `timescale 1ns / 1ps
-//`define ENABLE_ETH
+`define ENABLE_ETH
 `define ENABLE_FT601
 
 module pcileech_com (
